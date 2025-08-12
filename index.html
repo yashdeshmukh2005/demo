@@ -1,13 +1,416 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>John Roberto - Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="particles" id="particles-js"></div>
+    <div class="container">
+      <!-- Left Side Profile Section -->
+      <div class="profile-section">
+        <div class="profile-photo" id="profilePhoto">
+          <div class="photo-frame">
+            <img src="dhruve.jpg" />
+          </div>
+          <div class="photo-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="personal-info">
+          <h1>DHRUVE</h1>
+          <h2>FULL STACK DEVELOPER</h2>
+
+          <div class="info-item">
+            <i class="fas fa-birthday-cake"></i>
+            <span>15 may 2005</span>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Wadi Nagpur</span>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>8329956892</span>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>Dhruvedhole@gamil.com</span>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-globe"></i>
+            <span>Dhruve.in</span>
+          </div>
+        </div>
+
+        <div class="about-section card" data-aos="fade-up">
+          <h3>ABOUT ME</h3>
+          <p>
+            Full stack developer with 8+ years of experience building web
+            applications. Specialized in JavaScript frameworks and cloud
+            architecture. Passionate about creating efficient, scalable
+            solutions with clean code.
+          </p>
+        </div>
+
+        <div class="buttons">
+          <button class="btn btn-primary" id="personalProjectsBtn">
+            <i class="fas fa-code"></i> Personal Projects
+          </button>
+          <button class="btn btn-secondary" id="otherProjectsBtn">
+            <i class="fas fa-briefcase"></i> Professional Work
+          </button>
+        </div>
+
+        <div class="social-media card" data-aos="fade-up">
+          <h3>CONNECT WITH ME</h3>
+          <div class="social-icons">
+            <a href="#" class="github"><i class="fab fa-github"></i></a>
+            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="stack-overflow"
+              ><i class="fab fa-stack-overflow"></i
+            ></a>
+            <a href="#" class="medium"><i class="fab fa-medium-m"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side Content Section -->
+      <div class="content-section">
+        <section class="education-section card" data-aos="fade-up">
+          <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2010-2012</div>
+            <div class="timeline-content">
+              <h3>Stanford University</h3>
+              <p>M.S. in Computer Science</p>
+              <p class="timeline-desc">
+                Specialization in Artificial Intelligence and Machine Learning
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2006-2010</div>
+            <div class="timeline-content">
+              <h3>MIT</h3>
+              <p>B.S. in Computer Science</p>
+              <p class="timeline-desc">Minor in Mathematics, GPA: 3.8/4.0</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="experience-section card" data-aos="fade-up">
+          <h2><i class="fas fa-briefcase"></i> EXPERIENCE</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2019-Present</div>
+            <div class="timeline-content">
+              <h3>TechSolutions Inc.</h3>
+              <p>Senior Full Stack Developer</p>
+              <p class="timeline-desc">
+                Led a team of 5 developers to build scalable web applications
+                using React, Node.js, and AWS. Implemented CI/CD pipelines
+                reducing deployment time by 40%.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2015-2019</div>
+            <div class="timeline-content">
+              <h3>Digital Innovations</h3>
+              <p>Frontend Developer</p>
+              <p class="timeline-desc">
+                Developed responsive web applications using React and Redux.
+                Improved application performance by 30% through code
+                optimization.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2012-2015</div>
+            <div class="timeline-content">
+              <h3>WebCraft Studios</h3>
+              <p>Junior Developer</p>
+              <p class="timeline-desc">
+                Built and maintained client websites using HTML, CSS,
+                JavaScript, and PHP. Collaborated with designers to implement
+                UI/UX designs.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="awards-section card" data-aos="fade-up">
+          <h2><i class="fas fa-award"></i> AWARDS & CERTIFICATIONS</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2021</div>
+            <div class="timeline-content">
+              <h3>AWS Certified Solutions Architect</h3>
+              <p class="timeline-desc">
+                Professional certification in cloud architecture and services
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2019</div>
+            <div class="timeline-content">
+              <h3>Employee of the Year</h3>
+              <p class="timeline-desc">
+                Recognized for outstanding contributions to company projects
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">2017</div>
+            <div class="timeline-content">
+              <h3>Best Hackathon Project</h3>
+              <p class="timeline-desc">
+                Won first place in annual company hackathon
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="languages-section card" data-aos="fade-up">
+          <h2><i class="fas fa-language"></i> LANGUAGES</h2>
+          <div class="languages-grid">
+            <div class="language-item">
+              <span class="language-name">ENGLISH</span>
+              <div class="language-proficiency">
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+              </div>
+            </div>
+
+            <div class="language-item">
+              <span class="language-name">SPANISH</span>
+              <div class="language-proficiency">
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot"></div>
+                <div class="proficiency-dot"></div>
+              </div>
+            </div>
+
+            <div class="language-item">
+              <span class="language-name">GERMAN</span>
+              <div class="language-proficiency">
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot filled"></div>
+                <div class="proficiency-dot"></div>
+                <div class="proficiency-dot"></div>
+                <div class="proficiency-dot"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="skills-section card" data-aos="fade-up">
+          <h2><i class="fas fa-code"></i> TECHNICAL SKILLS</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Frontend</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3/SASS</span>
+                <span class="skill-tag">Redux</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Backend</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">REST APIs</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>DevOps & Cloud</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Serverless</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Databases</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Firebase</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="projects-section card" data-aos="fade-up">
+          <h2><i class="fas fa-project-diagram"></i> RECENT PROJECTS</h2>
+          <div class="projects-preview">
+            <div class="project-card">
+              <div
+                class="project-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+                "
+              ></div>
+              <h3>E-commerce Platform</h3>
+              <p>
+                Full-stack e-commerce solution with React, Node.js, and MongoDB
+              </p>
+            </div>
+            <div class="project-card">
+              <div
+                class="project-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80');
+                "
+              ></div>
+              <h3>Task Management App</h3>
+              <p>
+                Real-time collaborative task management with Vue.js and Firebase
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Projects Modals -->
+    <div class="modal" id="personalProjectsModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-code"></i> Personal Projects</h2>
+        <div class="projects-grid">
+          <div class="project-item">
+            <div class="project-header">
+              <h3>Dev Community Platform</h3>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>GraphQL</span>
+              </div>
+            </div>
+            <p>
+              A platform for developers to share knowledge, ask questions, and
+              collaborate on projects. Implemented real-time notifications and
+              markdown support.
+            </p>
+            <a href="#" class="project-link"
+              >View Project <i class="fas fa-external-link-alt"></i
+            ></a>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <h3>AI Image Generator</h3>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>Flask</span>
+              </div>
+            </div>
+            <p>
+              Web application that generates artistic images based on text
+              prompts using deep learning models. Integrated with cloud storage
+              for image management.
+            </p>
+            <a href="#" class="project-link"
+              >View Project <i class="fas fa-external-link-alt"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="otherProjectsModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-briefcase"></i> Professional Work</h2>
+        <div class="projects-grid">
+          <div class="project-item">
+            <div class="project-header">
+              <h3>Enterprise CRM System</h3>
+              <div class="project-tech">
+                <span>Vue.js</span>
+                <span>Django</span>
+                <span>AWS</span>
+              </div>
+            </div>
+            <p>
+              Custom CRM solution for large enterprise with 500+ users.
+              Implemented complex data visualization dashboards and automated
+              reporting features.
+            </p>
+            <a href="#" class="project-link"
+              >View Details <i class="fas fa-external-link-alt"></i
+            ></a>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <h3>Healthcare Portal</h3>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+            </div>
+            <p>
+              HIPAA-compliant patient portal with secure messaging, appointment
+              scheduling, and telehealth features. Handled 10,000+ monthly
+              active users.
+            </p>
+            <a href="#" class="project-link"
+              >View Details <i class="fas fa-external-link-alt"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Teal Split Resume — Your Name</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --teal: #2fa5a8; /* main teal */
+        --teal-dark: #2b9aa0;
+        --panel: #e9f6f6; /* left panel bg */
+        --white: #ffffff;
+        --muted: #2b3a3a;
+        --shadow: rgba(10, 14, 20, 0.45);
+        --glass: rgba(255, 255, 255, 0.06);
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f5f9f9, #eef6f6);
+        color: var(--muted);
+      }
+
+      /* layout */
+      .container {
+        max-width: 1100px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: 38% 62%;
+        gap: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 18px 50px var(--shadow);
+      }
+
+      /* left panel (profile) */
+      .left {
+        background: var(--panel);
+        padding: 34px 28px;
+        position: relative;
+      }
+      .photo-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 18px;
+      }
+      .avatar-card {
+        width: 220px;
+        height: 220px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        transform-style: preserve-3d;
+        box-shadow: 0 18px 40px rgba(20, 30, 30, 0.08);
+        transition: transform 0.35s ease;
+      }
+      .avatar-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .name {
+        font-size: 26px;
+        font-weight: 800;
+        margin: 10px 0 2px;
+      }
+      .role {
+        font-size: 13px;
+        letter-spacing: 2px;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 700;
+      }
+
+      .info {
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      .info .row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .label {
+        width: 80px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.65);
+      }
+      .value {
+        color: rgba(0, 0, 0, 0.75);
+      }
+
+      .about {
+        margin-top: 16px;
+        color: rgba(0, 0, 0, 0.75);
+        line-height: 1.5;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: none;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--teal-dark);
+        color: var(--white);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--teal);
+        color: var(--teal);
+      }
+
+      .socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .socials a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        text-decoration: none;
+        color: var(--muted);
+      }
+
+      /* right panel (details) */
+      .right {
+        background: linear-gradient(180deg, var(--teal), var(--teal-dark));
+        color: white;
+        padding: 42px 40px;
+      }
+      .section {
+        margin-bottom: 28px;
+        padding: 18px;
+        border-radius: 10px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(0, 0, 0, 0.04)
+        );
+        backdrop-filter: blur(6px);
+      }
+      .section h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+      .section .meta {
+        font-size: 13px;
+        opacity: 0.95;
+      }
+
+      /* timeline style */
+      .timeline-item {
+        display: flex;
+        gap: 18px;
+        margin-top: 12px;
+      }
+      .timeline-date {
+        width: 96px;
+        font-weight: 800;
+        opacity: 0.9;
+      }
+      .timeline-body {
+        flex: 1;
+      }
+
+      /* skills / languages */
+      .skill-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .dots {
+        display: flex;
+        gap: 6px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .dot.filled {
+        background: var(--white);
+      }
+
+      /* small responsive */
+      @media (max-width: 900px) {
+        .container {
+          grid-template-columns: 1fr;
+          max-width: 760px;
+        }
+        .right {
+          padding: 28px;
+        }
+        .left {
+          padding: 22px;
+        }
+        .avatar-card {
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      /* 3D hover card effect */
+      .avatar-card.hovering {
+        transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(8px);
+      }
+
+      /* card hover 3d for sections */
+      \ .section:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        transition: transform 0.35s ease, box-shadow 0.35s;
+      }
+
+      /* modal styles */
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 10, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 200;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-content {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px;
+        max-width: 880px;
+        width: 100;
+        color: #0b1a1a;
+        max-height: 86vh;
+        overflow: auto;
+      }
+      .modal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .project-card {
+        background: #f8fbfb;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* small animation helpers */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: all 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .fade-in.in {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="photo-wrap">
+          <div class="avatar-card" id="avatarCard" aria-hidden="true">
+            <!-- replace src with your photo -->
+            <img
+              id="avatarImg"
+              src="/mnt/data/da8244f2-9bd1-41ab-9da6-372f9feb4fe3.png"
+              alt="Profile photo"
+            />
+          </div>
+        </div>
+
+        <div style="text-align: center">
+          <div class="name">JOHN ROBERTO</div>
+          <div class="role">MARKETING SPECIALIST</div>
+        </div>
+
+        <div class="info fade-in" data-animate>
+          <div class="row">
+            <div class="label">D.O.B</div>
+            <div class="value">13 August 1985</div>
+          </div>
+          <div class="row">
+            <div class="label">Address</div>
+            <div class="value">23 Street Name, Town/City, State, Country</div>
+          </div>
+          <div class="row">
+            <div class="label">Phone</div>
+            <div class="value">028 1234 5678</div>
+          </div>
+          <div class="row">
+            <div class="label">Email</div>
+            <div class="value">johnroberto@info.com</div>
+          </div>
+        </div>
+
+        <div class="about fade-in" data-animate style="margin-top: 12px">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          molestie velit risus, sed sagittis nisl vulputate vel.
+        </div>
+
+        <div class="buttons" style="justify-content: center">
+          <button class="btn btn-primary" id="personalBtn">
+            Personal Projects
+          </button>
+          <button class="btn btn-outline" id="otherBtn">Other Projects</button>
+        </div>
+
+        <div
+          class="socials fade-in"
+          data-animate
+          style="justify-content: center"
+        >
+          <a href="#" title="facebook">F</a>
+          <a href="#" title="twitter">T</a>
+          <a href="#" title="instagram">I</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="section fade-in" data-animate>
+          <h3>EDUCATION</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">1990 - 1992 :</div>
+            <div class="timeline-body">
+              <div class="meta">Course Study — University/College Detail</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">1993 - 1996 :</div>
+            <div class="timeline-body">
+              <div class="meta">Course Study — University/College Detail</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section fade-in" data-animate>
+          <h3>EXPERIENCE</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">1999 - 2001 :</div>
+            <div class="timeline-body">
+              <div class="meta">
+                Company Name — Position Held<br /><small style="opacity: 0.9"
+                  >Description of the position and responsibilities you had in
+                  this part.</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2002 - 2005 :</div>
+            <div class="timeline-body">
+              <div class="meta">
+                Company Name — Position Held<br /><small style="opacity: 0.9"
+                  >Description of the position and responsibilities you had in
+                  this part.</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section fade-in" data-animate>
+          <h3>AWARDS</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">2005 :</div>
+            <div class="timeline-body">
+              <div class="meta">Award Name — Detail about the award</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2007 :</div>
+            <div class="timeline-body">
+              <div class="meta">Award Name — Detail about the award</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section fade-in" data-animate>
+          <h3>LANGUAGE</h3>
+          <div class="skill-row">
+            <div>ENGLISH</div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot filled"></span
+              ><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div>SPANISH</div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot filled"></span
+              ><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div>DEUTCH</div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot"></span
+              ><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section fade-in" data-animate>
+          <h3>SKILL</h3>
+          <div style="font-weight: 800; opacity: 0.95">
+            SOCIAL MEDIA BRANDING
+          </div>
+          <div class="skill-row">
+            <div style="width: 70%"></div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot filled"></span
+              ><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <div style="font-weight: 800; margin-top: 8px; opacity: 0.95">
+            B2B MARKETING
+          </div>
+          <div class="skill-row">
+            <div style="width: 70%"></div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot filled"></span
+              ><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div style="font-weight: 800; margin-top: 8px; opacity: 0.95">
+            PRESENTATION
+          </div>
+          <div class="skill-row">
+            <div style="width: 70%"></div>
+            <div class="dots">
+              <span class="dot filled"></span><span class="dot filled"></span
+              ><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for projects -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+          "
+        >
+          <h3 id="modalTitle">Projects</h3>
+          <button
+            id="closeModal"
+            style="
+              padding: 8px 10px;
+              border-radius: 8px;
+              border: none;
+              background: #eee;
+              cursor: pointer;
+            "
+          >
+            Close
+          </button>
+        </div>
+        <div class="modal-grid" id="modalGrid">
+          <!-- project items will be injected here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // -------------------------------
+      // Avatar parallax tilt (mouse move)
+      // -------------------------------
+      const avatar = document.getElementById("avatarCard");
+      const rect = () => avatar.getBoundingClientRect();
+      function setTilt(x, y) {
+        const r = rect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = x - cx;
+        const dy = y - cy;
+        const ry = (dx / r.width) * 18; // rotateY
+        const rx = -(dy / r.height) * 12; // rotateX
+        avatar.style.setProperty("--ry", ry + "deg");
+        avatar.style.setProperty("--rx", rx + "deg");
+        avatar.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+        avatar.classList.add("hovering");
+      }
+      function resetTilt() {
+        avatar.style.transform = "";
+        avatar.classList.remove("hovering");
+      }
+      avatar.addEventListener("mousemove", (e) =>
+        setTilt(e.clientX, e.clientY)
+      );
+      avatar.addEventListener("mouseleave", resetTilt);
+
+      // also support touch tilt (subtle)
+      avatar.addEventListener("touchmove", (e) => {
+        const t = e.touches[0];
+        setTilt(t.clientX, t.clientY);
+      });
+      avatar.addEventListener("touchend", resetTilt);
+
+      // -------------------------------
+      // Simple fade-in on scroll using IntersectionObserver
+      // -------------------------------
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((ent) => {
+            if (ent.isIntersecting) {
+              ent.target.classList.add("in");
+              io.unobserve(ent.target);
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+      document
+        .querySelectorAll("[data-animate]")
+        .forEach((el) => io.observe(el));
+
+      // -------------------------------
+      // Modal logic and demo projects
+      // -------------------------------
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalGrid = document.getElementById("modalGrid");
+      const personalBtn = document.getElementById("personalBtn");
+      const otherBtn = document.getElementById("otherBtn");
+      const closeModal = document.getElementById("closeModal");
+
+      const personalProjects = [
+        {
+          title: "Portfolio Website",
+          desc: "A personal portfolio with animations.",
+          tech: "HTML, CSS, JS",
+        },
+        {
+          title: "3D Card UI",
+          desc: "Interactive 3D cards using Three.js.",
+          tech: "Three.js, WebGL",
+        },
+        {
+          title: "Design System",
+          desc: "Reusable UI components and tokens.",
+          tech: "Figma, CSS",
+        },
+      ];
+      const otherProjects = [
+        {
+          title: "Company Landing",
+          desc: "Marketing site for a SaaS product.",
+          tech: "React, Node",
+        },
+        {
+          title: "E-commerce Flow",
+          desc: "Cart & checkout UX improvements",
+          tech: "Vue, Firebase",
+        },
+        {
+          title: "Analytics Dashboard",
+          desc: "Data visualizations and reports",
+          tech: "D3, Chart.js",
+        },
+      ];
+
+      function openModal(type) {
+        modal.classList.add("open");
+        modalTitle.textContent =
+          type === "personal" ? "Personal Projects" : "Other Projects";
+        const list = type === "personal" ? personalProjects : otherProjects;
+        modalGrid.innerHTML = "";
+        list.forEach((p) => {
+          const card = document.createElement("div");
+          card.className = "project-card";
+          card.innerHTML = `<strong>${p.title}</strong><p style="margin:8px 0;color:rgba(0,0,0,0.65)">${p.desc}</p><div style="font-size:13px;color:rgba(0,0,0,0.6)">Tech: ${p.tech}</div>`;
+          modalGrid.appendChild(card);
+        });
+      }
+      personalBtn.addEventListener("click", () => openModal("personal"));
+      otherBtn.addEventListener("click", () => openModal("other"));
+      closeModal.addEventListener("click", () =>
+        modal.classList.remove("open")
+      );
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.remove("open");
+      });
+
+      // -------------------------------
+      // Small performance note: you can replace modal project data with real links and images.
+      // -------------------------------
+    </script>
+  </body>
+</html>
